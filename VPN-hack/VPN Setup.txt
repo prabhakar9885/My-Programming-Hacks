@@ -1,0 +1,17 @@
+Linux setup:
+============
+
+To setup openVPN in Linux you can use following steps:
+
+    Install openvpn package using yum, apt-get, synaptic, yast etc. based on which Linux distribution you are using. All standard Linux distriubtion support openVPN installation using standard repositories.
+    After installation go to `/etc/openvpn' folder and copy files `ca.crt', `all.iiit.ac.in.crt', `all.iiit.ac.in.key' and `linux_client.conf' in this directory. (You need to be root to be able to write in this directory).
+    Now to start openVPN connection you have to follow these steps:
+        Start terminal as root user
+        Go to directory `/etc/openvpn'
+        Use command `openvpn --config linux_client.conf' to start openVPN tunnel
+        When asked for username and password, please enter your proper IIIT email address as username and email password as password. For example username can be 'saurabh.barjatiya@research.iiit.ac.in' and password corresponding email password.
+        After you see 'Process Initialization Complete' message, you have to open another terminal as root user
+        In this terminal open file `/etc/resolv.conf' and add line `nameserver 10.4.20.204' at top of this file
+    When you connect using VPN you will get IP in range 10.11.0.0/16. You can now ssh to mirage.iiit.ac.in, web.iiit.ac.in, etc. You can open browser and open courses.iiit.ac.in or intranet.iiit.ac.in or even ss1.iiit.ac.in from outside campus.
+    To disconnect just press 'Ctrl+C' in terminal in which you have started openVPN client. Also remove entry for `nameserver 10.4.20.204' from `/etc/resolv.conf' file.
+
