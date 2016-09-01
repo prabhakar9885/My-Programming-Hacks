@@ -12,3 +12,8 @@ How to use?
     auth-user-pass "./VPN.pass"
 4. For starting the VPN: sudo bash start_vpn.sh
        stopping the VPN: sudo bash stop_vpn.sh
+
+Disable OpenVPN on start-up
+===========================
+vim  /etc/default/openvpn
+AUTOSTART="none"  # Uncomment this line
